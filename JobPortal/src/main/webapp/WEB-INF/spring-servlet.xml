@@ -12,9 +12,24 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">  
   
     <!-- Provide support for component scanning -->  
-    <context:component-scan base-package="com.project" />  
+    <context:component-scan base-package="project" /> 
+    <context:annotation-config/>
+    <bean id="userService" class="project.service.UserServiceImpl"></bean> 
+    <bean id="userDao" class="project.dao.UserDaoImpl"></bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="datasource"></property>
+    </bean>
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://127.0.0.1:3306/capstone"/>
+    <property name="username" value="root"/>
+    <property name="password" value=""/>    
+    </bean>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <property name="prefix" value="/WEB-INF/views/jsp"/>
+    <property name="suffix" value=".jsp"/>
+    </bean>
   
     <!--Provide support for conversion, formatting and validation -->  
-    <mvc:annotation-driven/>  
-  
+    <mvc:annotation-driven/>   
 </beans>  

@@ -10,4 +10,18 @@
     <servlet-name>spring</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/WEB-INF/views/jsp/error.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/WEB-INF/views/jsp/error.jsp</location>
+  </error-page>
+  <error-page>
+  	<location>/WEB-INF/views/jsp/error.jsp</location>
+  </error-page>
+  <welcome-file-list>
+  <welcome-file>home.jsp</welcome-file>
+  </welcome-file-list>
 </web-app>
